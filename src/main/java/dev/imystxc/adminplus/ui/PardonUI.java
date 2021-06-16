@@ -15,6 +15,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.text.TextFormatting;
 
 public class PardonUI {
@@ -50,7 +51,8 @@ public class PardonUI {
                 .display(new ItemStack(Items.DYE,1,9))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "pardon-options", "unmute-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "pardon-options", "unmute-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "pardon-options", "unmute-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
@@ -61,7 +63,8 @@ public class PardonUI {
                 .display(Utils.nbtRemove(new ItemStack(PixelmonItemsTools.rubyHammerItem)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "pardon-options", "unban-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "pardon-options", "unban-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "pardon-options", "unban-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
@@ -71,7 +74,8 @@ public class PardonUI {
                 .display(new ItemStack(Blocks.BEDROCK))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "pardon-options", "unbanip-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "pardon-options", "unbanip-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "pardon-options", "unbanip-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
@@ -81,7 +85,8 @@ public class PardonUI {
                 .display(new ItemStack(Blocks.IRON_BARS))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "pardon-options", "unjail-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "pardon-options", "unjail-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "pardon-options", "unjail-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();

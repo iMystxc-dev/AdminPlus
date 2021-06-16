@@ -15,6 +15,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.text.TextFormatting;
 
 public class MuteUI {
@@ -53,7 +54,8 @@ public class MuteUI {
                 .display(new ItemStack(Items.DYE,1,7))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-1-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-1-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-1-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
@@ -63,7 +65,8 @@ public class MuteUI {
                 .display(new ItemStack(Items.DYE,1,12))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-2-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-2-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-2-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
@@ -73,7 +76,8 @@ public class MuteUI {
                 .display(new ItemStack(Items.DYE,1,8))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-3-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-3-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-3-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
@@ -83,7 +87,8 @@ public class MuteUI {
                 .display(new ItemStack(Items.DYE,1,10))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-4-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-4-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-4-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
@@ -93,7 +98,8 @@ public class MuteUI {
                 .display(new ItemStack(Items.DYE,1,9))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-5-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-5-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-5-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
@@ -103,7 +109,8 @@ public class MuteUI {
                 .display(new ItemStack(Items.DYE,1,13))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-6-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-6-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-6-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
@@ -113,7 +120,8 @@ public class MuteUI {
                 .display(new ItemStack(Items.DYE,1,5))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-7-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-7-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-7-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();

@@ -17,6 +17,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
@@ -57,7 +58,8 @@ public class AdminUI {
                 .display(new ItemStack(Blocks.BEDROCK))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "main", "ban-ip-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "main", "ban-ip-command"}).getString().replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "main", "ban-ip-command"}).getString().replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
@@ -66,7 +68,8 @@ public class AdminUI {
                 .display(Utils.nbtRemove(new ItemStack(Items.CHAINMAIL_BOOTS)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "main", "kick-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "main", "kick-command"}).getString().replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "main", "kick-command"}).getString().replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
@@ -75,7 +78,8 @@ public class AdminUI {
                 .display(Utils.nbtRemove(new ItemStack(Items.DIAMOND_SWORD)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "main", "kill-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "main", "kill-command"}).getString().replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "main", "kill-command"}).getString().replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();

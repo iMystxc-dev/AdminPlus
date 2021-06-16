@@ -13,6 +13,7 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.text.TextFormatting;
 
 public class BanUI {
@@ -51,7 +52,8 @@ public class BanUI {
                 .display(Utils.nbtRemove(new ItemStack(PixelmonItemsTools.hammerWood)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-1-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-1-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-1-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
@@ -61,7 +63,8 @@ public class BanUI {
                 .display(Utils.nbtRemove(new ItemStack(PixelmonItemsTools.hammerStone)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-2-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-2-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-2-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
@@ -71,7 +74,8 @@ public class BanUI {
                 .display(Utils.nbtRemove(new ItemStack(PixelmonItemsTools.hammerIron)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-3-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-3-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-3-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
@@ -81,7 +85,8 @@ public class BanUI {
                 .display(Utils.nbtRemove(new ItemStack(PixelmonItemsTools.hammerGold)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-4-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-4-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-4-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
@@ -91,7 +96,8 @@ public class BanUI {
                 .display(Utils.nbtRemove(new ItemStack(PixelmonItemsTools.hammerAluminium)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-5-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-5-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-5-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
@@ -101,7 +107,8 @@ public class BanUI {
                 .display(Utils.nbtRemove(new ItemStack(PixelmonItemsTools.hammerDiamond)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-6-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-6-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-6-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
@@ -111,7 +118,8 @@ public class BanUI {
                 .display(Utils.nbtRemove(new ItemStack(PixelmonItemsTools.rubyHammerItem)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-7-title"}).getString().replaceAll("%player%", player.getName())))
                 .onClick(buttonAction -> {
-                    sender.getServer().commandManager.executeCommand(sender, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-7-command"}).getString()).replaceAll("%player%", player.getName()));
+                    MinecraftServer server = sender.getServer();
+                    sender.getServer().commandManager.executeCommand(server, Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-7-command"}).getString()).replaceAll("%player%", player.getName()));
                     UIManager.closeUI((EntityPlayerMP) sender);
                 })
                 .build();
