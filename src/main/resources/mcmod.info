@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "AdminPlus",
+    "name": "AdminPlus",
+    "description": "Staff Command Gui",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://github.com/iMystxc-dev",
+    "updateUrl": "",
+    "authorList": [
+      "iMystxc"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
