@@ -89,6 +89,12 @@ public class Config {
             config.getNode(new Object[]{"main", "tphere-title"}).setValue("&cTeleport &6%player% &cTo You");
             config.getNode(new Object[]{"main", "invsee-command"}).setValue("invsee %player% ");
             config.getNode(new Object[]{"main", "invsee-title"}).setValue("&cCheck &6%player% &cInventory");
+            config.getNode(new Object[]{"main", "commandspy-command"}).setValue("commandspy");
+            config.getNode(new Object[]{"main", "commandspy-title"}).setValue("&cToggle CommandSpy");
+            config.getNode(new Object[]{"main", "socialspy-command"}).setValue("socialspy");
+            config.getNode(new Object[]{"main", "socialspy-title"}).setValue("&cToggle SocialSpy");
+            config.getNode(new Object[]{"main", "vanish-command"}).setValue("vanish");
+            config.getNode(new Object[]{"main", "vanish-title"}).setValue("&cToggle Vanish");
             config.getNode(new Object[]{"jail-options", "title"}).setValue("&cJail Options For &6%player% ");
             config.getNode(new Object[]{"ban-options", "title"}).setValue("&cBan Options For &6%player% ");
             config.getNode(new Object[]{"mute-options", "title"}).setValue("&cMute Options For &6%player% ");
