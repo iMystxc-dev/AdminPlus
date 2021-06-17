@@ -6,6 +6,7 @@ import ca.landonjw.gooeylibs2.api.button.GooeyButton;
 import ca.landonjw.gooeylibs2.api.page.GooeyPage;
 import ca.landonjw.gooeylibs2.api.page.LinkedPage;
 import ca.landonjw.gooeylibs2.api.template.types.ChestTemplate;
+import com.mojang.authlib.GameProfile;
 import dev.imystxc.adminplus.config.Config;
 import dev.imystxc.adminplus.utils.Utils;
 import net.minecraft.command.ICommandSender;
@@ -18,7 +19,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.text.TextFormatting;
 
 public class JailUI {
-    public static GooeyPage menu(ICommandSender sender, EntityPlayerMP player) {
+    public static GooeyPage menu(ICommandSender sender, GameProfile player) {
 
         GooeyButton head = GooeyButton.builder()
                 .display(Utils.getPlayerHead(player))
@@ -47,7 +48,7 @@ public class JailUI {
                 .build();
     }
 
-    public static Button jailButton(ICommandSender sender, EntityPlayerMP player) {
+    public static Button jailButton(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(new ItemStack(Blocks.IRON_BARS))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "jail-options", "option-1-title"}).getString().replaceAll("%player%", player.getName())))
@@ -57,7 +58,7 @@ public class JailUI {
                 })
                 .build();
     }
-    public static Button jailButtonTwo(ICommandSender sender, EntityPlayerMP player) {
+    public static Button jailButtonTwo(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(new ItemStack(Blocks.IRON_BARS))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "jail-options", "option-2-title"}).getString().replaceAll("%player%", player.getName())))
@@ -67,7 +68,7 @@ public class JailUI {
                 })
                 .build();
     }
-    public static Button jailButtonThree(ICommandSender sender, EntityPlayerMP player) {
+    public static Button jailButtonThree(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(new ItemStack(Blocks.IRON_BARS))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "jail-options", "option-3-title"}).getString().replaceAll("%player%", player.getName())))
@@ -78,7 +79,7 @@ public class JailUI {
                 })
                 .build();
     }
-    public static Button jailButtonFour(ICommandSender sender, EntityPlayerMP player) {
+    public static Button jailButtonFour(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(new ItemStack(Blocks.IRON_BARS))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "jail-options", "option-4-title"}).getString().replaceAll("%player%", player.getName())))
@@ -89,7 +90,7 @@ public class JailUI {
                 })
                 .build();
     }
-    public static Button jailButtonFive(ICommandSender sender, EntityPlayerMP player) {
+    public static Button jailButtonFive(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(new ItemStack(Blocks.IRON_BARS))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "jail-options", "option-5-title"}).getString().replaceAll("%player%", player.getName())))
@@ -100,7 +101,7 @@ public class JailUI {
                 })
                 .build();
     }
-    public static Button jailButtonSix(ICommandSender sender, EntityPlayerMP player) {
+    public static Button jailButtonSix(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(new ItemStack(Blocks.IRON_BARS))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "jail-options", "option-6-title"}).getString().replaceAll("%player%", player.getName())))
@@ -111,7 +112,7 @@ public class JailUI {
                 })
                 .build();
     }
-    public static Button jailButtonSeven(ICommandSender sender, EntityPlayerMP player) {
+    public static Button jailButtonSeven(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(new ItemStack(Blocks.IRON_BARS))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "jail-options", "option-7-title"}).getString().replaceAll("%player%", player.getName())))

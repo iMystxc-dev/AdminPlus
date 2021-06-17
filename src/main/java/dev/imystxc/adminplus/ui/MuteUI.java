@@ -6,6 +6,7 @@ import ca.landonjw.gooeylibs2.api.button.GooeyButton;
 import ca.landonjw.gooeylibs2.api.page.GooeyPage;
 import ca.landonjw.gooeylibs2.api.page.LinkedPage;
 import ca.landonjw.gooeylibs2.api.template.types.ChestTemplate;
+import com.mojang.authlib.GameProfile;
 import com.pixelmonmod.pixelmon.config.PixelmonItemsTools;
 import com.pixelmonmod.pixelmon.items.heldItems.ItemLightClay;
 import dev.imystxc.adminplus.config.Config;
@@ -20,7 +21,7 @@ import net.minecraft.util.text.TextFormatting;
 
 public class MuteUI {
 
-    public static GooeyPage menu(ICommandSender sender, EntityPlayerMP player) {
+    public static GooeyPage menu(ICommandSender sender, GameProfile player) {
 
         GooeyButton head = GooeyButton.builder()
                 .display(Utils.getPlayerHead(player))
@@ -49,7 +50,7 @@ public class MuteUI {
                 .build();
     }
 
-    public static Button muteButton(ICommandSender sender, EntityPlayerMP player) {
+    public static Button muteButton(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(new ItemStack(Items.DYE,1,7))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-1-title"}).getString().replaceAll("%player%", player.getName())))
@@ -60,7 +61,7 @@ public class MuteUI {
                 })
                 .build();
     }
-    public static Button muteButtonTwo(ICommandSender sender, EntityPlayerMP player) {
+    public static Button muteButtonTwo(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(new ItemStack(Items.DYE,1,12))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-2-title"}).getString().replaceAll("%player%", player.getName())))
@@ -71,7 +72,7 @@ public class MuteUI {
                 })
                 .build();
     }
-    public static Button muteButtonThree(ICommandSender sender, EntityPlayerMP player) {
+    public static Button muteButtonThree(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(new ItemStack(Items.DYE,1,8))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-3-title"}).getString().replaceAll("%player%", player.getName())))
@@ -82,7 +83,7 @@ public class MuteUI {
                 })
                 .build();
     }
-    public static Button muteButtonFour(ICommandSender sender, EntityPlayerMP player) {
+    public static Button muteButtonFour(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(new ItemStack(Items.DYE,1,10))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-4-title"}).getString().replaceAll("%player%", player.getName())))
@@ -93,7 +94,7 @@ public class MuteUI {
                 })
                 .build();
     }
-    public static Button muteButtonFive(ICommandSender sender, EntityPlayerMP player) {
+    public static Button muteButtonFive(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(new ItemStack(Items.DYE,1,9))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-5-title"}).getString().replaceAll("%player%", player.getName())))
@@ -104,7 +105,7 @@ public class MuteUI {
                 })
                 .build();
     }
-    public static Button muteButtonSix(ICommandSender sender, EntityPlayerMP player) {
+    public static Button muteButtonSix(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(new ItemStack(Items.DYE,1,13))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-6-title"}).getString().replaceAll("%player%", player.getName())))
@@ -115,7 +116,7 @@ public class MuteUI {
                 })
                 .build();
     }
-    public static Button muteButtonSeven(ICommandSender sender, EntityPlayerMP player) {
+    public static Button muteButtonSeven(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(new ItemStack(Items.DYE,1,5))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "mute-options", "option-7-title"}).getString().replaceAll("%player%", player.getName())))

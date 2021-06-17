@@ -6,6 +6,7 @@ import ca.landonjw.gooeylibs2.api.button.GooeyButton;
 import ca.landonjw.gooeylibs2.api.page.GooeyPage;
 import ca.landonjw.gooeylibs2.api.page.LinkedPage;
 import ca.landonjw.gooeylibs2.api.template.types.ChestTemplate;
+import com.mojang.authlib.GameProfile;
 import com.pixelmonmod.pixelmon.config.PixelmonItemsTools;
 import dev.imystxc.adminplus.config.Config;
 import dev.imystxc.adminplus.utils.Utils;
@@ -18,7 +19,7 @@ import net.minecraft.util.text.TextFormatting;
 
 public class BanUI {
 
-    public static GooeyPage menu(ICommandSender sender, EntityPlayerMP player) {
+    public static GooeyPage menu(ICommandSender sender, GameProfile player) {
 
         GooeyButton head = GooeyButton.builder()
                 .display(Utils.getPlayerHead(player))
@@ -47,7 +48,7 @@ public class BanUI {
                 .build();
     }
 
-    public static Button banButton(ICommandSender sender, EntityPlayerMP player) {
+    public static Button banButton(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(Utils.nbtRemove(new ItemStack(PixelmonItemsTools.hammerWood)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-1-title"}).getString().replaceAll("%player%", player.getName())))
@@ -58,7 +59,7 @@ public class BanUI {
                 })
                 .build();
     }
-    public static Button banButtonTwo(ICommandSender sender, EntityPlayerMP player) {
+    public static Button banButtonTwo(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(Utils.nbtRemove(new ItemStack(PixelmonItemsTools.hammerStone)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-2-title"}).getString().replaceAll("%player%", player.getName())))
@@ -69,7 +70,7 @@ public class BanUI {
                 })
                 .build();
     }
-    public static Button banButtonThree(ICommandSender sender, EntityPlayerMP player) {
+    public static Button banButtonThree(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(Utils.nbtRemove(new ItemStack(PixelmonItemsTools.hammerIron)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-3-title"}).getString().replaceAll("%player%", player.getName())))
@@ -80,7 +81,7 @@ public class BanUI {
                 })
                 .build();
     }
-    public static Button banButtonFour(ICommandSender sender, EntityPlayerMP player) {
+    public static Button banButtonFour(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(Utils.nbtRemove(new ItemStack(PixelmonItemsTools.hammerGold)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-4-title"}).getString().replaceAll("%player%", player.getName())))
@@ -91,7 +92,7 @@ public class BanUI {
                 })
                 .build();
     }
-    public static Button banButtonFive(ICommandSender sender, EntityPlayerMP player) {
+    public static Button banButtonFive(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(Utils.nbtRemove(new ItemStack(PixelmonItemsTools.hammerAluminium)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-5-title"}).getString().replaceAll("%player%", player.getName())))
@@ -102,7 +103,7 @@ public class BanUI {
                 })
                 .build();
     }
-    public static Button banButtonSix(ICommandSender sender, EntityPlayerMP player) {
+    public static Button banButtonSix(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(Utils.nbtRemove(new ItemStack(PixelmonItemsTools.hammerDiamond)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-6-title"}).getString().replaceAll("%player%", player.getName())))
@@ -113,7 +114,7 @@ public class BanUI {
                 })
                 .build();
     }
-    public static Button banButtonSeven(ICommandSender sender, EntityPlayerMP player) {
+    public static Button banButtonSeven(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(Utils.nbtRemove(new ItemStack(PixelmonItemsTools.rubyHammerItem)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "ban-options", "option-7-title"}).getString().replaceAll("%player%", player.getName())))

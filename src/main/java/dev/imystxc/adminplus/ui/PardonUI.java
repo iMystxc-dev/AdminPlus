@@ -6,6 +6,7 @@ import ca.landonjw.gooeylibs2.api.button.GooeyButton;
 import ca.landonjw.gooeylibs2.api.page.GooeyPage;
 import ca.landonjw.gooeylibs2.api.page.LinkedPage;
 import ca.landonjw.gooeylibs2.api.template.types.ChestTemplate;
+import com.mojang.authlib.GameProfile;
 import com.pixelmonmod.pixelmon.config.PixelmonItemsTools;
 import dev.imystxc.adminplus.config.Config;
 import dev.imystxc.adminplus.utils.Utils;
@@ -20,7 +21,7 @@ import net.minecraft.util.text.TextFormatting;
 
 public class PardonUI {
 
-    public static GooeyPage menu(ICommandSender sender, EntityPlayerMP player) {
+    public static GooeyPage menu(ICommandSender sender, GameProfile player) {
 
         GooeyButton head = GooeyButton.builder()
                 .display(Utils.getPlayerHead(player))
@@ -46,7 +47,7 @@ public class PardonUI {
                 .build();
     }
 
-    public static Button unmuteButton(ICommandSender sender, EntityPlayerMP player) {
+    public static Button unmuteButton(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(new ItemStack(Items.DYE,1,9))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "pardon-options", "unmute-title"}).getString().replaceAll("%player%", player.getName())))
@@ -58,7 +59,7 @@ public class PardonUI {
                 .build();
     }
 
-    public static Button unbanButton(ICommandSender sender, EntityPlayerMP player) {
+    public static Button unbanButton(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(Utils.nbtRemove(new ItemStack(PixelmonItemsTools.rubyHammerItem)))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "pardon-options", "unban-title"}).getString().replaceAll("%player%", player.getName())))
@@ -69,7 +70,7 @@ public class PardonUI {
                 })
                 .build();
     }
-    public static Button unbanipButton(ICommandSender sender, EntityPlayerMP player) {
+    public static Button unbanipButton(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(new ItemStack(Blocks.BEDROCK))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "pardon-options", "unbanip-title"}).getString().replaceAll("%player%", player.getName())))
@@ -80,7 +81,7 @@ public class PardonUI {
                 })
                 .build();
     }
-    public static Button unjailButton(ICommandSender sender, EntityPlayerMP player) {
+    public static Button unjailButton(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display(new ItemStack(Blocks.IRON_BARS))
                 .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "pardon-options", "unjail-title"}).getString().replaceAll("%player%", player.getName())))

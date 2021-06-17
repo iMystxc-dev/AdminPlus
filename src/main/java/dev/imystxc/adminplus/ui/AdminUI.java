@@ -4,8 +4,8 @@ import ca.landonjw.gooeylibs2.api.UIManager;
 import ca.landonjw.gooeylibs2.api.button.GooeyButton;
 import ca.landonjw.gooeylibs2.api.page.GooeyPage;
 import ca.landonjw.gooeylibs2.api.page.LinkedPage;
-import ca.landonjw.gooeylibs2.api.page.Page;
 import ca.landonjw.gooeylibs2.api.template.types.ChestTemplate;
+import com.mojang.authlib.GameProfile;
 import com.pixelmonmod.pixelmon.config.PixelmonItemsHeld;
 import com.pixelmonmod.pixelmon.config.PixelmonItemsTools;
 import dev.imystxc.adminplus.config.Config;
@@ -15,15 +15,13 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
 public class AdminUI {
 
-    public static GooeyPage menu(ICommandSender sender, EntityPlayerMP player) {
+    public static GooeyPage menu(ICommandSender sender, GameProfile player) {
 
         GooeyButton head = GooeyButton.builder()
                 .display(Utils.getPlayerHead(player))
@@ -118,15 +116,44 @@ public class AdminUI {
                 })
                 .build();
 
-        ChestTemplate main = ChestTemplate.builder(5)
+        GooeyButton commandspyButton = GooeyButton.builder()
+                .display(Utils.nbtRemove(new ItemStack(PixelmonItemsHeld.spellTag)))
+                .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "main", "commandspy-title"}).getString().replaceAll("%player%", player.getName())))
+                .onClick(buttonAction -> {
+                    sender.getServer().commandManager.executeCommand(sender, Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "main", "commandspy-command"}).getString().replaceAll("%player%", player.getName()));
+                    UIManager.closeUI((EntityPlayerMP) sender);
+                })
+                .build();
+
+        GooeyButton socialspyButton = GooeyButton.builder()
+                .display(Utils.nbtRemove(new ItemStack(PixelmonItemsHeld.cleanseTag)))
+                .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "main", "socialspy-title"}).getString().replaceAll("%player%", player.getName())))
+                .onClick(buttonAction -> {
+                    sender.getServer().commandManager.executeCommand(sender, Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "main", "socialspy-command"}).getString().replaceAll("%player%", player.getName()));
+                    UIManager.closeUI((EntityPlayerMP) sender);
+                })
+                .build();
+
+        GooeyButton vanishButton = GooeyButton.builder()
+                .display(Utils.nbtRemove(new ItemStack(Items.SPLASH_POTION)))
+                .title(Utils.regex(Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "main", "vanish-title"}).getString().replaceAll("%player%", player.getName())))
+                .onClick(buttonAction -> {
+                    sender.getServer().commandManager.executeCommand(sender, Config.getInstance().getConfig().getNode(new Object[]{"adminplus", "main", "vanish-command"}).getString().replaceAll("%player%", player.getName()));
+                    UIManager.closeUI((EntityPlayerMP) sender);
+                })
+                .build();
+
+        ChestTemplate main = ChestTemplate.builder(6)
                 .row(0, Utils.colouredPane(EnumDyeColor.RED))
-                .row(4, Utils.colouredPane(EnumDyeColor.WHITE))
+                .row(5, Utils.colouredPane(EnumDyeColor.WHITE))
                 .set(1,0, Utils.colouredPane(EnumDyeColor.RED))
                 .set(1,8, Utils.colouredPane(EnumDyeColor.RED))
                 .set(2,0, Utils.colouredPane(EnumDyeColor.BLACK))
                 .set(2,8, Utils.colouredPane(EnumDyeColor.BLACK))
-                .set(3,0, Utils.colouredPane(EnumDyeColor.WHITE))
-                .set(3,8, Utils.colouredPane(EnumDyeColor.WHITE))
+                .set(3,0, Utils.colouredPane(EnumDyeColor.BLACK))
+                .set(3,8, Utils.colouredPane(EnumDyeColor.BLACK))
+                .set(4,0, Utils.colouredPane(EnumDyeColor.WHITE))
+                .set(4,8, Utils.colouredPane(EnumDyeColor.WHITE))
                 .fill(Utils.colouredPane(EnumDyeColor.GRAY))
                 .set(2,4, head)
                 .set(1,1, banButton)
@@ -139,6 +166,9 @@ public class AdminUI {
                 .set(3, 1, teleportHereButton)
                 .set(3, 3, seeInventory)
                 .set(3,7, pardon)
+                .set(4,2, commandspyButton)
+                .set(4,4, vanishButton)
+                .set(4,6, socialspyButton)
                 .build();
 
         return LinkedPage.builder()
