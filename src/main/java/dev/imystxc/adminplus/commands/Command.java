@@ -17,6 +17,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 public class Command extends CommandBase {
     @Override
@@ -42,11 +43,9 @@ public class Command extends CommandBase {
                     return;
                 }
             }
-            EntityPlayerMP targetPlayer = server.getPlayerList().getPlayerByUsername(args[0]);
-            if (targetPlayer != null) {
-                UIManager.openUIForcefully((EntityPlayerMP) sender, AdminUI.menu(sender, targetPlayer));
-            }else {
-                sender.sendMessage(new TextComponentString(Utils.regex("&7[&eAdminPlus&7] &cInvalid usage player has to be online")));
+            GameProfile profile = server.getPlayerProfileCache().getGameProfileForUsername(args[0]);
+            if (profile != null) {
+                UIManager.openUIForcefully((EntityPlayerMP) sender, AdminUI.menu(sender, profile));
             }
         }else {
             sender.sendMessage(new TextComponentString(Utils.regex("&7[&eAdminPlus&7] &cInvalid usage please specify a player\n&c/adminplus <player>")));

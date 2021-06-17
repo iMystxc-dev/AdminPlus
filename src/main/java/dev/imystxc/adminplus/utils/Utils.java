@@ -5,9 +5,9 @@ import ca.landonjw.gooeylibs2.api.button.Button;
 import ca.landonjw.gooeylibs2.api.button.GooeyButton;
 import ca.landonjw.gooeylibs2.api.button.linked.LinkType;
 import ca.landonjw.gooeylibs2.api.button.linked.LinkedPageButton;
+import com.mojang.authlib.GameProfile;
 import com.pixelmonmod.pixelmon.config.PixelmonItems;
 import com.pixelmonmod.pixelmon.config.PixelmonItemsHeld;
-import com.pixelmonmod.pixelmon.config.PixelmonItemsTools;
 import dev.imystxc.adminplus.ui.AdminUI;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -34,7 +34,7 @@ public class Utils {
         return line;
     }
 
-    public static GooeyButton backButton(ICommandSender sender, EntityPlayerMP player) {
+    public static GooeyButton backButton(ICommandSender sender, GameProfile player) {
         return GooeyButton.builder()
                 .display((new ItemStack(PixelmonItemsHeld.ejectButton)))
                 .title(TextFormatting.RED + ("Back"))
@@ -51,7 +51,7 @@ public class Utils {
                 .build();
     }
 
-    public static ItemStack getPlayerHead(EntityPlayerMP player) {
+    public static ItemStack getPlayerHead(GameProfile player) {
         ItemStack playerHead = new ItemStack(Items.SKULL, 1, 3);
         NBTTagCompound nbt = new NBTTagCompound();
         nbt.setTag("SkullOwner", new NBTTagString(player.getName()));
