@@ -46,6 +46,8 @@ public class Command extends CommandBase {
             GameProfile profile = server.getPlayerProfileCache().getGameProfileForUsername(args[0]);
             if (profile != null) {
                 UIManager.openUIForcefully((EntityPlayerMP) sender, AdminUI.menu(sender, profile));
+            }else {
+                sender.sendMessage(new TextComponentString(Utils.regex("&7[&eAdminPlus&7] &cInvalid player, make sure player name is spelt correctly")));
             }
         }else {
             sender.sendMessage(new TextComponentString(Utils.regex("&7[&eAdminPlus&7] &cInvalid usage please specify a player\n&c/adminplus <player>")));
